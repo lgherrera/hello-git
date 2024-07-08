@@ -1,7 +1,7 @@
 import streamlit as st
 
 def main():
-    st.title("Hello from GitHub Codespaces!")
+    st.title("Hello Andrea from GitHub Codespaces!")
     st.write("Welcome to this Streamlit app running in a Codespace.")
     
     name = st.text_input("What's your name?")
