@@ -1,14 +1,12 @@
 {
-    "name": "Streamlit App Codespace",
-    "image": "mcr.microsoft.com/vscode/devcontainers/python:0-3.9",
-    "forwardPorts": [8501],
-    "postCreateCommand": "pip install --user -r requirements.txt",
-    "portsAttributes": {
-        "8501": {
-            "label": "Streamlit",
-            "onAutoForward": "notify"
+    "name": "Python 3",
+    "image": "mcr.microsoft.com/devcontainers/python:0-3.9",
+    "features": {
+        "ghcr.io/devcontainers/features/python:1": {
+            "installTools": true
         }
     },
+    "postCreateCommand": "pip3 install --user -r requirements.txt",
     "customizations": {
         "vscode": {
             "extensions": [
@@ -17,11 +15,10 @@
             ],
             "settings": {
                 "python.defaultInterpreterPath": "/usr/local/bin/python",
+                "python.analysis.typeCheckingMode": "basic",
                 "python.linting.enabled": true,
                 "python.linting.pylintEnabled": true,
-                "python.formatting.autopep8Path": "/usr/local/py-utils/bin/autopep8",
-                "python.formatting.blackPath": "/usr/local/py-utils/bin/black",
-                "python.formatting.yapfPath": "/usr/local/py-utils/bin/yapf"
+                "python.linting.pylintPath": "/usr/local/py-utils/bin/pylint"
             }
         }
     }
