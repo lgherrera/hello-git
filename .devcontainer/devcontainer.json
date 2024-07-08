@@ -1,16 +1,28 @@
-import streamlit as st
-
-def main():
-    st.title("Hello from GitHub Codespaces!")
-    st.write("Welcome to this Streamlit app running in a Codespace.")
-    
-    name = st.text_input("What's your name?")
-    if name:
-        st.write(f"Hello, {name}! It's great to meet you in this Codespace environment.")
-    
-    if st.button("Click for a Codespace surprise!"):
-        st.balloons()
-        st.write("You're now experiencing Streamlit in GitHub Codespaces!")
-
-if __name__ == "__main__":
-    main()
+{
+    "name": "Streamlit App Codespace",
+    "image": "mcr.microsoft.com/vscode/devcontainers/python:0-3.9",
+    "forwardPorts": [8501],
+    "postCreateCommand": "pip install --user -r requirements.txt",
+    "portsAttributes": {
+        "8501": {
+            "label": "Streamlit",
+            "onAutoForward": "notify"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance"
+            ],
+            "settings": {
+                "python.defaultInterpreterPath": "/usr/local/bin/python",
+                "python.linting.enabled": true,
+                "python.linting.pylintEnabled": true,
+                "python.formatting.autopep8Path": "/usr/local/py-utils/bin/autopep8",
+                "python.formatting.blackPath": "/usr/local/py-utils/bin/black",
+                "python.formatting.yapfPath": "/usr/local/py-utils/bin/yapf"
+            }
+        }
+    }
+}
